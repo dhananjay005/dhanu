@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      .form-grp{
+        color: whitesmoke;
+      }
+
+      body{
+        background: url("https://d39l2hkdp2esp1.cloudfront.net/img/photo/183152/183152_00_2x.jpg") no-repeat center;
+            background-size: cover;
+      }
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "montserrat",sans-serif;
+          }
+          .contact-section{
+           
+            padding: 140px 0;
+          }
+          .contact-section h1{
+            text-align: center;
+            color:black;
+            font-size: 35px;
+            
+            
+            
+          }
+          .border{
+            width: 100px;
+            height: 10px;
+            background: #34495e;
+            color: white;
+            margin: 40px auto;
+          }
+          
+          .contact-form{
+            max-width: 600px;
+            margin: auto;
+            padding: 0 10px;
+            overflow: hidden;
+          }
+          
+          .contact-form-text{
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 16px 0;
+            border: 0;
+            background:rgba(0,0,0,0.8);
+            
+            padding: 20px 40px;
+            outline: none;
+            color:white;
+            transition: 0.5s;
+          }
+          .contact-form-text:focus{
+            box-shadow: 0 0 10px 4px #34495e;
+          }
+          textarea.contact-form-text{
+            resize: none;
+            height: 120px;
+          }
+          .contact-form-btn{
+            float: right;
+            border: 0;
+            background: #34495e;
+            color: #fff;
+            padding: 12px 50px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.5s;
+          }
+          .contact-form-btn:hover{
+            background: #2980b9;
+          }
+
+          .sub{
+            color:whitesmoke;
+            font-style: bold;
+            font-size: 23px;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            position: absolute;
+            top:0%;
+            left:78%;
+        }
+        .sub2{
+            color:whitesmoke;
+            font-size: 23px ;
+            font-style: bold;
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            position: absolute;
+            top:0%;
+            left:88%;
+        }
+          
+    </style>
+  </head>
+  <body>
+
+<div class="contact-section">
+
+  <h1>Ask Your Doubts/Query</h1>
+  <div class="border"></div>
+  <form class="contact-form" action="/ask/" method="post">
+    {% csrf_token %}
+    <input type="text"  name="name"class="contact-form-text" placeholder="Your name">
+    <input type="email"  name="email"class="contact-form-text" placeholder="Your email">
+    <input type="text"    class="contact-form-text" placeholder="Your phone">
+    <textarea  type="message" name="message"class="contact-form-text" placeholder="Your message"></textarea>
+    
+    <input type="submit" class="contact-form-btn" value="Send">
+    
+    <div class="form-group">
+      {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success"> {{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+<ul>
+  <li><a href="/" class="sub">Home</a></li>
+  <li><a href=  "/about/" class="sub2">About</a></li>
+  
+  </ul>
+
+
+  </body>
+</html>

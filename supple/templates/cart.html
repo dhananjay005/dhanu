@@ -1,0 +1,355 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.ibb.co/cFMK9NG/notfavicon3.png" type="image/x-icon" />
+    <title>Shopping Cart - Musclefactory</title>
+    <style>
+    body{
+			margin: 0;
+			font-family: "Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            padding-bottom:50px;
+		}
+		.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: black;
+}
+
+.flex-container > div {
+  background-color: black;
+  width: 130px;
+  color: #808080;
+  height: 0%;
+  text-align: center;
+  margin: 0px;
+  margin-right: 2%;
+  line-height: 55px;
+  font-size: 1.12em;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+a {
+  color:#fff;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+a:hover {
+  color: #fdec6e;
+  text-shadow:0px 0px 20px #fdec6e;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+        table {
+  border-collapse: collapse;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+  width: 33.33%;
+  border: 1px solid black;
+}
+
+tr:nth-child(odd){background-color: #f2f2f2}
+
+th {
+  background-color: grey;
+  color: white;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #60adde;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  float: right;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+	.button2 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color:#60adde;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  float: left;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button2 span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.button2:hover span {
+  padding-left: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+.inner
+{
+    display: flex;
+    justify-content: space-between;
+}
+input{
+	width:50%;
+	padding:10px;
+	box-sizing:border-box;
+	background:none;
+	outline:none;resize:none;
+	border:0;
+	font-family:'Montserrat',sans-serif;
+	transition:all .3s;
+	border-bottom:2px solid #bebed2
+}
+input:focus{
+	border-bottom:2px solid #78788c
+}
+</style>
+</head>
+<body>
+
+  <div class="flex-container">
+    <div style="margin-left: -2.5%;"><a href="/">Logout</a></div>
+    <div style="margin-left: -1%;"><a href="/about/">About Us</a></div>
+    <div><a href="/contact/">Contact Us</a></div>
+   
+  </div>
+  <h1 style=" padding-left: 1%; margin-top: -3.8%; color:orangered; font-size: 2.3em;">Muscle Factory</h1>
+  
+  <h2 style="text-align: center; font-size:1.5em;">Shopping Cart</h2>
+
+  <table align="center">
+    <thead>
+      
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity X M.R.P</th>
+          <th>Total (Rs.)</th>
+        </tr>
+      
+    </thead>
+   <tbody>
+    <tr>
+      <td>
+        <img src="https://cdn.healthxp.in/wp-content/uploads/2017/07/ON-5-lbs-DRC.jpg" width="80" height="80">
+        <h4>ON whey</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.0 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.0 1 7468 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://vitamin360.com/wp-content/uploads/2019/02/150_Prostar_Strawberry.jpg" width="80" height="80">
+        <h4>PRO STAR whey</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.1 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.1 1 3999 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61FjF3Q095L._SX466_.jpg" width="80" height="80">
+        <h4>MUSCLE BLAZE GOLD</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.2 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.2 1 4799 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81dIgCkKoZL._AC_SL1500_.jpg" width="80" height="80">
+        <h4>MUSCLE PHARMA whey</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.3 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.3 1 4399 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/612O5ZKcOBL._SY679_.jpg" width="80" height="80">
+        <h4>RC king</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.4 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.4 1 5250 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://cdn11.bigcommerce.com/s-8atiyfebxx/images/stencil/1280x1280/products/163/1214/PRODUCT-MASSTECH__49237.1576694622.jpg?c=2&imbypass=on" width="80" height="80">
+        <h4>Muscle Tech mass</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.5 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.5 1 3300 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71Mht2TXZ2L._AC_SY679_.jpg" width="80" height="80">
+        <h4>SYNTHA-6</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.6 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.6 1 4574 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61wFejj8e9L._AC_SL1500_.jpg" width="80" height="80">
+        <h4>ON Mass Gainer</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.7 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.7 1 2952 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://m.media-amazon.com/images/S/aplus-media/vc/8bb62a01-9b8c-4ff9-ad48-656a0b21ec96._CR0,0,1000,1000_PT0_SX300__.jpg" width="80" height="80">
+        <h4>ON BCAA</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.8 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.8 1 2679 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://img5.hkrtcdn.com/733/prd_73294_o.jpg" width="80" height="80">
+        <h4>Muscle Blaze Multivitamins</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.9 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.9 1 629 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61Q03sWI7LL._SL1500_.jpg" width="80" height="80">
+        <h4>Muscle Pharma Creatine</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.10 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.10 1 1049 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://rukminim1.flixcart.com/image/832/832/jm573ww0/protein-supplement/g/7/q/ultra-micronized-l-glutamine-mb-original-imaf92ahchzvkqnr.jpeg?q=70" width="80" height="80">
+        <h4>Muscle Blaze GLUTAMINE</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.11 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.11 1 1000 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/41g0lCUX2gL.jpg" width="80" height="80">
+        <h4>ASITIS Raw Whey</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.12 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.12 1 1183 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://n1.sdlcdn.com/imgs/h/h/f/Czar-600-ml-Protein-Shaker-SDL651209851-1-f2e47.jpeg" width="80" height="80">
+        <h4>ON Protein Shaker</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.13 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.13 1 350 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71kcVyBo-kL._SX425_.jpg" width="80" height="80">
+        <h4>GYM Equipments</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.14 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.14 1 7419 %}</td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://cdn.shopify.com/s/files/1/1304/0433/products/3_20d0032c-05e6-4a14-a89d-1a2e1fe66714.jpg?v=1574869425" width="80" height="80">
+        <h4>GYM Bag</h4>
+      </td>
+      <td style="font-size:1.5em;">{{ a.15 }}</td>
+      <td style="font-size:1.5em;">{% widthratio  a.15 1 3784 %}</td>
+    </tr>
+    <tr style="border-bottom: 1px solid black;border-top: 1px solid black;">
+      <td></td>
+      <td style="font-size:1.5em;">Net Amount Payable</td>
+      <td style="font-size:1.5em;">{{ totalSum }}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<form>
+  <div class="inner">
+    <div>
+      <button class="button2" formaction="/store/" type="submit" style="vertical-align:middle">
+        <span>Shop Again</span>
+      </button>
+    </div>
+    <div>
+      <button class="button" formaction="/shipping/" type="submit" style="vertical-align:middle">
+        <span>Place your Order</span>
+      </button>
+    </div>
+  </div>
+</form>
+<hr>
+<h3 style="text-align:center;">Note: Currently Payment option is only Cash On Delivery, Online payment is coming soon...</h3>
+</body>
+</html>
